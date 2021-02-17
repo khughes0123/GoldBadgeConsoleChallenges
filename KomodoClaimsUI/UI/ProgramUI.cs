@@ -85,20 +85,21 @@ namespace KomodoClaimsUI.UI
         private void DisplayClaims(Claim claim)
         {
             Console.WriteLine();
-            Console.WriteLine($"|{"ClaimID", -20} | {"Type,-", -20} | {"Description", -40} | {"Amount", -20} |{"DateOfAccident", -40} | {"DateOfClaim", -40} | {"IsValid", -20}");
-            Console.WriteLine($"| {claim.ClaimId, -20} | {claim.ClaimType, -20} | {claim.Description, -40} |{claim.ClaimAmount, -20} | {claim.DateOfIncident, -40} | {claim.DateOfClaim, -40} |{claim.IsValid, -20}");
+            Console.WriteLine($"|{"ClaimID",-20} | {"Type,-",-20} | {"Description",-40} | {"Amount",-20} |{"DateOfAccident",-40} | {"DateOfClaim",-40} | {"IsValid",-20}");
+            Console.WriteLine($"| {claim.ClaimId,-20} | {claim.ClaimType,-20} | {claim.Description,-40} |{claim.ClaimAmount,-20} | {claim.DateOfIncident,-40} | {claim.DateOfClaim,-40} |{claim.IsValid,-20}");
         }
 
         private void ShowNextClaim()
         {
             Console.Clear();
-            Queue<Claim> claims = _repo.GetClaims();
-            Console.WriteLine(claims.Peek());
+            Claim claim= _repo.PeekAtClaim();
+            Console.WriteLine($"|{"ClaimID",-20} | {"Type,-",-20} | {"Description",-40} | {"Amount",-20} |{"DateOfAccident",-40} | {"DateOfClaim",-40} | {"IsValid",-20}");
+            Console.WriteLine($"| {claim.ClaimId,-20} | {claim.ClaimType,-20} | {claim.Description,-40} |{claim.ClaimAmount,-20} | {claim.DateOfIncident,-40} | {claim.DateOfClaim,-40} |{claim.IsValid,-20}");
             Console.WriteLine("Would you like to process this claim now? (Y)es or (N)o");
             string processOrder = Console.ReadLine().ToLower();
             if (processOrder == "y")
             {
-                Console.WriteLine(claims.Dequeue());
+                _repo.ProcessNextClaim();
             }
             else if (processOrder == "n")
             {
@@ -118,10 +119,6 @@ namespace KomodoClaimsUI.UI
             }
         }
 
-        private void Peek(Claim claim)
-        {
-            Console.WriteLine($"| {claim.ClaimId,-20} | {claim.ClaimType,-20} | {claim.Description,-40} |{claim.ClaimAmount,-20} | {claim.DateOfIncident,-40} | {claim.DateOfClaim,-40} |{claim.IsValid,-20}");
-        }
 
         private void AddNewClaim()
         {
@@ -169,7 +166,7 @@ namespace KomodoClaimsUI.UI
                 Console.WriteLine("Choose a valid option");
             }
 
-            
+
         }
 
     }

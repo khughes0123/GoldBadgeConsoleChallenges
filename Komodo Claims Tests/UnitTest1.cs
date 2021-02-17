@@ -9,7 +9,8 @@ namespace Komodo_Claims_Tests
     public class UnitTest1
     {
         private readonly ClaimsRepo _repo = new ClaimsRepo();
-        
+        private readonly ClaimsRepo _directory = new ClaimsRepo();
+
 
         [TestMethod]
         public void AddTest()
@@ -42,7 +43,15 @@ namespace Komodo_Claims_Tests
             Console.WriteLine(_repo.GetClaims().Count);
         }
 
-        
+
+        [TestMethod]
+        public void PeekTest()
+        {
+             _repo.Peek();
+
+            ClaimType expected = ClaimType.car;
+            ClaimType actual = 
+        }
 
     }
 }

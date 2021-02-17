@@ -25,11 +25,17 @@ namespace Komodo_Claims_Classes
             return _directory;
         }
 
-        public void NextClaim(Claim claim)
+        public Claim PeekAtClaim()
         {
+           
+             return _directory.Peek();
             
-            _directory.Peek();
-            _directory.Dequeue();
         }
+
+        public Claim ProcessNextClaim()
+        {
+            return _directory.Dequeue();
+        }
+
     }
 }
