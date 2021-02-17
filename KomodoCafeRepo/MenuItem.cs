@@ -13,16 +13,16 @@ namespace KomodoCafeRepo
         public string MealDescription { get; set; }
         public decimal MealPrice { get; set; }
 
-        public List<string> IngredientsList = new List<string>();
+       public string Ingredients { get; set; }
 
         public MenuItem() { }
-        public MenuItem(int menunumber, string mealname, string mealdescription, decimal mealprice, List<string> ingredientslist)
+        public MenuItem(int menunumber, string mealname, string mealdescription, decimal mealprice, string ingredients)
         {
             MenuNumber = menunumber;
             MealName = mealname;
             MealDescription = mealdescription;
             MealPrice = mealprice;
-            IngredientsList = ingredientslist;
+            Ingredients = ingredients;
 
         }
 
