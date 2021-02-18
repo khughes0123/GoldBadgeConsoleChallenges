@@ -1,6 +1,6 @@
 # GoldBadgeConsoleChallenges
 ### By Kyle Hughes
-###Console Challenges Completed:
+### Console Challenges Completed:
 >Komodo Cafe
 
 >Komodo Insurance Claims
