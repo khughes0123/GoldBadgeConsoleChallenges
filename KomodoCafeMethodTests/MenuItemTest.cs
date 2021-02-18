@@ -12,6 +12,8 @@ namespace KomodoCafeMethodTests
         [TestMethod]
         public void AddTest()
         {
+            
+
             MenuItem item1 = new MenuItem(
                 1,
                 "The Big One",
@@ -19,8 +21,8 @@ namespace KomodoCafeMethodTests
                 7.99m,
                 "cheese, beef, lettuce, onion, brioche bun");
 
-           _repo.AddMenuItemtoDirectory(item1);
-            
+          bool itemadded =  _repo.AddMenuItemtoDirectory(item1);
+            Assert.IsTrue(itemadded);
             Console.WriteLine(item1.Ingredients);
             Console.WriteLine(_repo.GetItems().Count);
                 

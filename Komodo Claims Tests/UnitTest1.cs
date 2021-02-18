@@ -44,14 +44,14 @@ namespace Komodo_Claims_Tests
         }
 
 
-        [TestMethod]
+        /*[TestMethod]
         public void PeekTest()
         {
              _repo.Peek();
 
             ClaimType expected = ClaimType.car;
-            ClaimType actual = 
-        }
+            ClaimType actual = */
+        
 
     }
 }
