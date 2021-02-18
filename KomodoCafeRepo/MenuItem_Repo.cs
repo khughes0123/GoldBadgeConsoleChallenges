@@ -11,10 +11,12 @@ namespace KomodoCafeRepo
         private readonly List<MenuItem> _directory = new List<MenuItem>();
 
 
-        public void AddMenuItemtoDirectory(MenuItem item)
+        public bool AddMenuItemtoDirectory(MenuItem item)
         {
-
+            int directoryLength = _directory.Count();
             _directory.Add(item);
+            bool wasAdded = directoryLength + 1 == _directory.Count();
+            return wasAdded;
 
         }
 
